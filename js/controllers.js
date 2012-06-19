@@ -3,32 +3,18 @@
 /* Controllers */
 
 
-function currencyCrtl($scope,$http) {
+function currencyCrtl($scope,$http,openExchangeRates) {
   $scope.testing = "hello!";
   $scope.ratesURL = 'http://openexchangerates.org/latest.json?callback=JSON_CALLBACK&name=rates&rand='+Math.random()*1000;
   $scope.currencyLabelsURL = 'http://openexchangerates.org/currencies.json?callback=JSON_CALLBACK&name=legend';
   $scope.balances =  new Array;
   $scope.currentTimeStamp = new Date().getTime();
 
-  $scope.fetch = function() {
- 
-    $http({method: 'JSONP', url: $scope.ratesURL}).
-      success(function(data, status) {
-        $scope.exchangeRates = data;
-      }).
-      error(function(data, status) {
-        $scope.exchangeRates = data || "Request failed";
-    });
 
-    $http({method: 'JSONP', url: $scope.currencyLabelsURL}).
-      success(function(data, status) {
-        $scope.currencyLegend = data;
-      }).
-      error(function(data, status) {
-        $scope.currencyLegend = data || "Request failed";
-    });
+  $scope.exchangeRates = openExchangeRates.getRates();
+  $scope.currencyLegend = openExchangeRates.getLegend();
 
-  };
+
 
   $scope.addBalance = function() {
     var newEmptyBalance = {exchangeRate:'', amount:''};
@@ -135,9 +121,6 @@ function currencyCrtl($scope,$http) {
     }
     
   }
-
-
-  $scope.fetch();
 
   $scope.addBalance();
   $scope.addBalance();

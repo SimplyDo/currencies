@@ -3,7 +3,25 @@
 /* Services */
 
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+//This Service provides game objects
+var servicesModule = angular.module('myApp.services', ['ngResource']);
+
+
+
+servicesModule.factory('openExchangeRates', function($resource){
+  return $resource('http://openexchangerates.org/:path', {callback:'JSON_CALLBACK'}, {
+    getRates: {method:'JSONP', params:{path:'latest.json'}},
+    getLegend: {method:'JSONP', params:{path:'currencies.json'}}
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
