@@ -20,7 +20,7 @@
   </script>
 
 </head>
-<body>
+<body ng-controller="currencyCrtl">
   <div id="simplyDoBanner">Currencies is a <a href="http://simplydo.com" target="new">Simply Do</a> project.</div>
 
   <div id="top">
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="container" ng-controller="currencyCrtl">
+  <div class="container">
     <div class="row">
       <div class="span6">
 
@@ -51,7 +51,7 @@
         <p>
           <button class="btn btn-primary" ng-click="addBalance();"><i class="icon-plus icon-white"></i> Add another</button>
         </p>
-        <p class="note">Exchange Rates were last updated {{ageOfExchangeRate()}} ago.<br />Rates powered by <a href="http://openexchangerates.org/" target="new">openexchangerates.org</a>.</p>
+        <p class="note">Exchange Rates were last updated {{ageOfExchangeRate()}} ago.<br />See terms and disclaimer below.</p>
 
       </div>
       <div class="span6">
@@ -71,24 +71,32 @@
   <div id="footer">
       <div class="container">
         <div class="row">
-          <div class="span4">
-            <p>© 2012 <a href="http://simplydo.com" target="new">Simply Do</a>, LLC.<br />All Rights Reserved.</p>
-          </div>
-          <div class="span4">
+          <div class="span3">
             <ul class="unstyled">
-              <li>Follow <a href="http://twitter.com/#!/SimplyDoThat" target="new">@SimplyDoThat</a> on Twitter</li>
+              <li>© 2012 <a href="http://simplydo.com" target="new">Simply Do</a>, LLC.<br />All Rights Reserved.</li>
             </ul>
           </div>
-          <div class="span4">
+          <div class="span3">
             <ul class="unstyled">
               <li>The source code is open and <a href="https://github.com/SimplyDo/currencies" target="new">available on Github</a></li>
-              <li>Exchange rates powered by <a href="http://openexchangerates.org/" target="new">Openexchangerates</a></li>
               <li>Created with <a href="http://angularjs.org/" target="new">AngularJS</a> by Google</li>
               <li>The UI is <a href="http://twitter.github.com/bootstrap/" target="new">Twitter Bootstrapped</a></li>
               <li>Hosted with <a href="http://pages.github.com/" target="new">Github pages</a></li>
 
             </ul>
           </div>
+          <div class="span6">
+            <ul class="unstyled">
+              <li>Exchange rates powered by <a href="http://openexchangerates.org/" target="new">Openexchangerates</a>:</li>
+              <li>
+                <strong>Disclaimer:</strong> {{exchangeRates.disclaimer}}
+              </li>
+              <li>
+                <strong>License:</strong> {{exchangeRates.license}}
+              </li>
+            </ul>
+          </div>
+          
         </div>
 
       </div>  
