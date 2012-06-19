@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>Currencies</title>
+  <title>Simply Do - Currencies</title>
   <link rel="stylesheet" href="css/default.css"/>
 </head>
 <body>
@@ -13,7 +13,7 @@
       <div class="row">
         <div class="span12">
           <h1>Currencies</h1>
-          <p>Convert one or more balances in different currencies at once. In real time.</p>
+          <p>Enter multiple balances in different currencies and convert them all at once. In real time.</p>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="span6">
 
-        <h2>Enter one or more Balances</h2>
+        <h2>Enter the amount(s) you want to convert"</h2>
         <ul>
           <li ng-repeat="balance in balances">
             <input type="text" ng-model="balance.amount" placeholder="Amount..." class="span2"/>
@@ -34,9 +34,9 @@
           </li>
         </ul>
         <p>
-          <button class="btn btn-primary" ng-click="addBalance();"><i class="icon-plus icon-white"></i> Add another balance</button>
+          <button class="btn btn-primary" ng-click="addBalance();"><i class="icon-plus icon-white"></i> Add another</button>
         </p>
-        <p class="note">Exchange Rates were last updated {{ageOfExchangeRate()}} ago.</p>
+        <p class="note">Exchange Rates were last updated {{ageOfExchangeRate()}} ago.<br />Rates powered by <a href="http://openexchangerates.org/" target="new">openexchangerates.org</a>.</p>
 
       </div>
       <div class="span6">

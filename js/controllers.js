@@ -40,11 +40,19 @@ function currencyCrtl($scope,$http) {
   }
 
   $scope.getCurrencyName = function(symbol) {
-    return $scope.currencyLegend[symbol];
+    if ($scope.currencyLegend) {
+      return $scope.currencyLegend[symbol];
+    } else {
+      return false;
+    }
   }
 
   $scope.getCurrencyNameFull= function(symbol) {
-    return $scope.currencyLegend[symbol]+' ('+symbol+')';
+    if ($scope.currencyLegend) {
+      return $scope.currencyLegend[symbol]+' ('+symbol+')';
+    } else {
+      return false;
+    }
   }
 
   $scope.totalBalance = function() {
@@ -106,17 +114,25 @@ function currencyCrtl($scope,$http) {
 
   $scope.ageOfExchangeRate = function() {
 
-    var currentTimeStamp = new Date().getTime();
+    if ($scope.exchangeRates) {
 
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds
-    var ageOfExchangeRate =  currentTimeStamp - $scope.exchangeRates.timestamp*1000;
+      var currentTimeStamp = new Date().getTime();
 
-    var minutes = Math.round(ageOfExchangeRate / 1000 / 60);
+      // multiplied by 1000 so that the argument is in milliseconds, not seconds
+      var ageOfExchangeRate =  currentTimeStamp - $scope.exchangeRates.timestamp*1000;
 
-    // will display time in 10:30:23 format
-    var formattedTime = minutes + ' minutes';
+      var minutes = Math.round(ageOfExchangeRate / 1000 / 60);
+
+      // will display time in 10:30:23 format
+      var formattedTime = minutes + ' minutes';
 
     return formattedTime;
+
+    } else {
+
+      return false;
+
+    }
     
   }
 
