@@ -3,18 +3,11 @@
 /* Controllers */
 
 
-function currencyCrtl($scope,$http,openExchangeRates) {
-  $scope.testing = "hello!";
-  $scope.ratesURL = 'http://openexchangerates.org/latest.json?callback=JSON_CALLBACK&name=rates&rand='+Math.random()*1000;
-  $scope.currencyLabelsURL = 'http://openexchangerates.org/currencies.json?callback=JSON_CALLBACK&name=legend';
+function currencyCrtl($scope,openExchangeRates) {
+
   $scope.balances =  new Array;
-  $scope.currentTimeStamp = new Date().getTime();
-
-
   $scope.exchangeRates = openExchangeRates.getRates();
   $scope.currencyLegend = openExchangeRates.getLegend();
-
-
 
   $scope.addBalance = function() {
     var newEmptyBalance = {exchangeRate:'', amount:''};
@@ -109,7 +102,6 @@ function currencyCrtl($scope,$http,openExchangeRates) {
 
       var minutes = Math.round(ageOfExchangeRate / 1000 / 60);
 
-      // will display time in 10:30:23 format
       var formattedTime = minutes + ' minutes';
 
     return formattedTime;
@@ -122,8 +114,8 @@ function currencyCrtl($scope,$http,openExchangeRates) {
     
   }
 
+  // populate form on load with two empty fields
   $scope.addBalance();
   $scope.addBalance();
-
 
 }
