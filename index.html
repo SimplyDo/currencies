@@ -19,6 +19,8 @@
 
   </script>
 
+  
+
 </head>
 <body ng-controller="currencyCrtl">
   <div id="simplyDoBanner">Currencies is a <a href="http://simplydo.com" target="new">Simply Do</a> project.</div>
@@ -108,5 +110,12 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="lib/chosen/chosen.jquery.min.js"></script>
+
+  <script type="text/javascript">
+    setTimeout('$("select").chosen();',5000);
+    
+  </script>
 </body>
 </html>
