@@ -1,9 +1,9 @@
-Balance Projector 
+Currencies
 
-Balance Projector can provide quick insights into your immediate financial future. The real time interface updates on every change and makes somewhat abstract numbers very tangible.
+Convert one or more balances quickly and effortlessly into any number of currencies. It has never been this easy.
 
-url: http://simplydo.com/projector/
-sources: https://github.com/SimplyDo/projector
+url: http://simplydo.com/currencies/
+sources: https://github.com/SimplyDo/currencies
 
 Created by Simply Do: http://simplydo.com
 
@@ -13,6 +13,7 @@ Uses various libraries / framework under their respective licenses:
 
 AngularJS by Google - http://angularjs.org/
 Twitter Bootstrapped - http://twitter.github.com/bootstrap/
+Up to date exchange rates - http://openexchangerates.org/
 
 
 
