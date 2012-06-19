@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Currencies</title>
+  <link rel="stylesheet" href="css/default.css"/>
+</head>
+<body>
+  <div ng-controller="currencyCrtl">
+
+    <p>{{totalBalance()}}</p>
+    <h2>Add balances</h2>
+    <ul>
+      <li ng-repeat="balance in balances">
+        <input type="text" ng-model="balance.amount" placeholder="Enter Amount" class="span1"/>
+        <select class="span2" ng-model='balance.exchangeRate' ng-options="getCurrencyName(symbol) for (symbol, rate) in exchangeRates.rates">
+          <option value="">-- chose currency --</option>
+        </select>
+        <a class="" ng-click="removeBalance($index);">remove</a>
+      </li>
+    </ul>
+    <button class="btn btn-indented" ng-click="addBalance();"><i class="icon-plus"></i> Add</button>
+
+
+    <p>Status: {{status}}</p>
+    <p>{{data.base}}</p>
+    <table>
+      <tr ng-repeat="(currency, rate) in exchangeRates.rates">
+        <td>{{getCurrencyName(currency)}}</td>
+        <td>{{roundDown(convertBaseValueToCurrencyValue(totalBalance(),rate))}}</td>
+      </tr>
+    </table>
+
+    <button ng-click="fetch();">fetch</button>
+  </div>
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
