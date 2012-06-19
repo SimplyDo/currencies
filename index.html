@@ -6,33 +6,78 @@
   <link rel="stylesheet" href="css/default.css"/>
 </head>
 <body>
-  <div ng-controller="currencyCrtl">
+  <div id="simplyDoBanner">Currencies is a <a href="http://simplydo.com" target="new">Simply Do</a> project.</div>
 
-    <p>{{totalBalance()}}</p>
-    <h2>Add balances</h2>
-    <ul>
-      <li ng-repeat="balance in balances">
-        <input type="text" ng-model="balance.amount" placeholder="Enter Amount" class="span1"/>
-        <select class="span2" ng-model='balance.exchangeRate' ng-options="getCurrencyName(symbol) for (symbol, rate) in exchangeRates.rates">
-          <option value="">-- chose currency --</option>
-        </select>
-        <a class="" ng-click="removeBalance($index);">remove</a>
-      </li>
-    </ul>
-    <button class="btn btn-indented" ng-click="addBalance();"><i class="icon-plus"></i> Add</button>
-
-
-    <p>Status: {{status}}</p>
-    <p>{{data.base}}</p>
-    <table>
-      <tr ng-repeat="(currency, rate) in exchangeRates.rates">
-        <td>{{getCurrencyName(currency)}}</td>
-        <td>{{roundDown(convertBaseValueToCurrencyValue(totalBalance(),rate))}}</td>
-      </tr>
-    </table>
-
-    <button ng-click="fetch();">fetch</button>
+  <div id="top">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>Currencies</h1>
+          <p>Convert one or more balances in different currencies at once. In real time.</p>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="container" ng-controller="currencyCrtl">
+    <div class="row">
+      <div class="span6">
+
+        <h2>Enter one or more Balances</h2>
+        <ul>
+          <li ng-repeat="balance in balances">
+            <input type="text" ng-model="balance.amount" placeholder="Amount..." class="span2"/>
+            <select class="span3" ng-model='balance.exchangeRate' ng-options="getCurrencyNameFull(symbol) for (symbol, rate) in exchangeRates.rates">
+              <option value="">Select currency...</option>
+            </select>
+            <a class="" ng-click="removeBalance($index);"><i class="icon-remove"></i></a>
+          </li>
+        </ul>
+        <p>
+          <button class="btn btn-primary" ng-click="addBalance();"><i class="icon-plus icon-white"></i> Add another balance</button>
+        </p>
+        <p class="note">Exchange Rates were last updated {{ageOfExchangeRate()}} ago.</p>
+
+      </div>
+      <div class="span6">
+        <h2>Your total in pretty much every currency</h2>
+        <table class="table table-striped"> 
+          <tr ng-repeat="(currency, rate) in exchangeRates.rates">
+            <td>{{getCurrencyName(currency)}}</td>
+            <td>{{currency}}</td>
+            <td class="number">{{roundDown(convertBaseValueToCurrencyValue(totalBalance(),rate))}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span4">
+            <p>© 2012 <a href="http://simplydo.com" target="new">Simply Do</a>, LLC.<br />All Rights Reserved.</p>
+          </div>
+          <div class="span4">
+            <ul class="unstyled">
+              <li>Follow <a href="http://twitter.com/#!/SimplyDoThat" target="new">@SimplyDoThat</a> on Twitter</li>
+            </ul>
+          </div>
+          <div class="span4">
+            <ul class="unstyled">
+              <li>The source code is open and <a href="https://github.com/SimplyDo/currencies" target="new">available on Github</a></li>
+              <li>Exchange rates powered by <a href="http://openexchangerates.org/" target="new">Openexchangerates</a></li>
+              <li>Created with <a href="http://angularjs.org/" target="new">AngularJS</a> by Google</li>
+              <li>The UI is <a href="http://twitter.github.com/bootstrap/" target="new">Twitter Bootstrapped</a></li>
+              <li>Hosted with <a href="http://pages.github.com/" target="new">Github pages</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>  
+    </div> 
 
   <script src="lib/angular/angular.js"></script>
   <script src="js/app.js"></script>
