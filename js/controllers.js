@@ -118,4 +118,7 @@ function currencyCrtl($scope,openExchangeRates) {
   $scope.addBalance();
   $scope.addBalance();
 
+
+  Socialite.load('social-buttons');
+
 }

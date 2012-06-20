@@ -22,11 +22,15 @@
 </head>
 <body ng-controller="currencyCrtl">
   <div id="simplyDoBanner">Currencies is a <a href="http://simplydo.com" target="new">Simply Do</a> project.</div>
-
   <div id="top">
     <div class="container">
       <div class="row">
         <div class="span12">
+          <ul class="social-buttons cf">
+            <li><a href="http://twitter.com/share" class="socialite twitter-share" data-text="Converting Currencies in real time with Simply Do Currencies." data-url="http://simplydo.com/currencies" data-count="vertical" data-via="simplydothat" rel="nofollow" target="_blank"><span class="vhidden">Twitter</span></a></li>
+            <li><a href="https://plus.google.com/share?url=http://simplydo.com/currencies" class="socialite googleplus-one" data-size="tall" data-href="http://simplydo.com/currencies" rel="nofollow" target="_blank"><span class="vhidden">Google+</span></a></li>
+            <li><a href="http://www.facebook.com/sharer.php?u=http://simplydo.com/currencies&amp;t=Simply%20Do%20Currencies" class="socialite facebook-like" data-href="http://simplydo.com/currencies" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden">Facebook</span></a></li>
+          </ul>
           <h1>Currencies</h1>
           <p>Enter multiple balances in different currencies and convert them all at once. In real time.</p>
         </div>
@@ -104,10 +108,13 @@
 
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/socialite/socialite.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+
+
 </body>
 </html>
